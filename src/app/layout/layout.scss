@@ -1,0 +1,19 @@
+.layout-container {
+  height: 100vh;
+  display: flex;
+
+  .sidenav {
+    max-width: 16.66%;
+  }
+  mat-drawer-content {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .main-content {
+    padding: 20px;
+    overflow: auto;
+    flex: 1;
+  }
+}

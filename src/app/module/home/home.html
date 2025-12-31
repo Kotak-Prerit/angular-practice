@@ -1,0 +1,13 @@
+<div class="home-container">
+  @for (card of componentCards; track card) {
+  <mat-card appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>{{ card.title }}</mat-card-title>
+      <mat-card-subtitle>{{ card.description }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions>
+      <a href="{{ card.route }}">Learn More</a>
+    </mat-card-actions>
+  </mat-card>
+  }
+</div>

@@ -1,0 +1,15 @@
+.home-container {
+    display: flex;
+
+  mat-card {
+    width: 33%;
+    margin: 20px;
+
+    a{
+        font-family: 'Roboto', sans-serif;
+        color: #ef3f36;
+
+    }
+  }
+}
+
