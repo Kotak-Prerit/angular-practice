@@ -1,0 +1,17 @@
+@use 'sass:map';
+@use 'color' as clr;
+
+@mixin custom_primary($palette, $name) {
+  &{
+    --#{$name}-50: map.get(clr.$palette, 50);
+    --#{$name}-100: map.get(clr.$palette, 100);
+    --#{$name}-200: map.get(clr.$palette, 200);
+    --#{$name}-300: map.get(clr.$palette, 300);
+    --#{$name}-400: map.get(clr.$palette, 400);
+    --#{$name}-500: map.get(clr.$palette, 500);
+    --#{$name}-600: map.get(clr.$palette, 600);
+    --#{$name}-700: map.get(clr.$palette, 700);
+    --#{$name}-800: map.get(clr.$palette, 800);
+    --#{$name}-900: map.get(clr.$palette, 900);
+  }
+}

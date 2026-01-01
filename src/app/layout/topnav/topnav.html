@@ -1,6 +1,10 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" >
   <button mat-icon-button (click)="onMenuClick()" aria-label="Toggle sidenav">
     <mat-icon>menu</mat-icon>
   </button>
-  <a href="/">Learning Angular</a>
+  <span class="example-spacer"></span>
+  <button mat-icon-button (click)="toggleTheme()">
+    <mat-icon>dark_mode</mat-icon>
+  </button>
+
 </mat-toolbar>

@@ -1,19 +1,51 @@
+@use 'sass:map';
 @use '@angular/material' as mat;
-@use 'color' as clr;
+@use 'color' as c;
 
+$primary-color: mat.m2-define-palette(c.$primary-palette);
+$secondary-color: mat.m2-define-palette(c.$secondary-palette, A200, A100, A400);
+$warn-color: mat.m2-define-palette(c.$warn-palette);
 
-
-$primary-color: mat.m2-define-palette(clr.$primary-palette);
-$secondary-color: mat.m2-define-palette(clr.$secondary-palette, A200, A100, A400);
-$warn-color: mat.m2-define-palette(clr.$warn-palette);
-
-$theme: mat.m2-define-light-theme((
+$light-theme: mat.m2-define-light-theme((
   color: (
     primary: $primary-color,
     accent: $secondary-color,
     error: $warn-color,
-  ),
-  typography: mat.m2-define-typography-config()
+    foreground: c.$light-foreground,
+    background: c.$light-background,
+  )
 ));
 
-@include mat.all-component-themes($theme);
+$dark-theme: mat.m2-define-light-theme((
+  color:(
+  primary: $primary-color,
+    accent: $secondary-color,
+    error: $warn-color,
+    foreground: c.$dark-foreground,
+    background: c.$dark-background,
+  )
+));
+
+:root{
+  @include mat.all-component-themes($light-theme);
+
+  /* Tailwind bridge (LIGHT) */
+  --app-bg: #{map.get(c.$light-background, background)};
+  --app-surface: #{map.get(c.$light-background, card)};
+  --app-text: #{map.get(c.$light-foreground, text)};
+  --app-text-muted: #{map.get(c.$light-foreground, secondary-text)};
+
+  color-scheme: light;
+};
+
+.dark-theme{
+  @include mat.all-component-themes($dark-theme);
+
+  // Tailwind bridge (DARK)
+  --app-bg: #{map.get(c.$dark-background, background)};
+  --app-surface: #{map.get(c.$dark-background, surface)};
+  --app-text: #{map.get(c.$dark-foreground, text)};
+  --app-text-muted: #{map.get(c.$dark-foreground, secondary-text)};
+
+  color-scheme: dark;
+}

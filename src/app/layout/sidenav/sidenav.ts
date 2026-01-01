@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import {MatToolbar} from '@angular/material/toolbar';
 
 interface link {
   label: string;
@@ -10,7 +11,7 @@ interface link {
 
 @Component({
   selector: 'app-sidenav',
-  imports: [MatListModule, MatIconModule, RouterLink, RouterLinkActive],
+  imports: [MatListModule, MatIconModule, RouterLink, RouterLinkActive, MatToolbar],
   templateUrl: './sidenav.html',
   styleUrl: './sidenav.scss',
 })

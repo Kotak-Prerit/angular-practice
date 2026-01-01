@@ -1,1 +1,5 @@
-@use './styles/index.scss'
+@use './styles/index.scss';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

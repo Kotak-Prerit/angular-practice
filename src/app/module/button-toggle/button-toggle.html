@@ -1,0 +1,24 @@
+<section>
+<mat-button-toggle-group name="fontStyle" [(ngModel)]="fontStyle" aria-label="Font Style" >
+  <mat-button-toggle value="Bold"><p  class="font-bold">Bold</p></mat-button-toggle>
+  <mat-button-toggle value="Italic" class="italic">Italic</mat-button-toggle>
+  <mat-button-toggle value="Dotted"><p class="underline">Dotted</p></mat-button-toggle>
+</mat-button-toggle-group>
+<p class="text-sm mt-3">Chosen value is {{fontStyle}}</p>
+</section>
+<mat-divider></mat-divider>
+<section>
+  <mat-checkbox
+    [checked]="hideSingleSelectionIndicator()"
+    (change)="toggleSingleSelectionIndicator()"
+    color="primary"
+  >
+    Primary Palette Checkbox
+  </mat-checkbox>
+  <mat-checkbox
+    [checked]="hideMultipleSelectionIndicator()"
+    (change)="toggleMultipleSelectionIndicator()"
+  >
+    Accent Palette Checkbox
+  </mat-checkbox>
+</section>

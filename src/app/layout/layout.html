@@ -1,11 +1,11 @@
-<mat-drawer-container class="layout-container">
-  <mat-drawer #drawer mode="side" opened class="sidenav">
+<mat-drawer-container class="h-screen flex">
+  <mat-drawer #drawer mode="over" class="md:min-w-[17%] min-w-[50%] fixed">
     <app-sidenav />
   </mat-drawer>
 
-  <mat-drawer-content>
-    <app-topnav (toggleSidenav)="toggleDrawer()" />
-    <main class="main-content">
+  <mat-drawer-content class="flex flex-col overflow-hidden w-full">
+    <app-topnav (toggleSidenav)="toggleDrawer()" class="sticky top-0 z-10"/>
+    <main class="p-[20px] overflow-hidden flex items-center justify-center flex-col mb-16">
       <router-outlet />
     </main>
   </mat-drawer-content>

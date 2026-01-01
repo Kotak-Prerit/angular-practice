@@ -1,4 +1,7 @@
 <mat-nav-list>
+  <mat-toolbar color="primary">
+    <a [routerLink]="'/'" class="text-white flex gap-2"> <img src="logo.svg" alt="logo" class="h-6"> Angular Practice</a>
+  </mat-toolbar>
   @for (item of navItems; track item.route) {
     <a mat-list-item [routerLink]="item.route" routerLinkActive="active">
       <span matListItemTitle>{{ item.label }}</span>

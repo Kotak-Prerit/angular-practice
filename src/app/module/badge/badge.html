@@ -1,1 +1,5 @@
-<p>badge works!</p>
+<div matBadge="4" matBadgeSize="small" class="mb-6 border py-2 px-1 rounded-lg">Small Badge</div>
+<div matBadge="1" matBadgeSize="medium" class="mb-6 border py-2 px-1 rounded-lg">Medium Badge</div>
+<div matBadge="1" matBadgeSize="large" class="mb-6 border py-2 px-1 rounded-lg">Large Badge</div>
+<div class="mb-6 border py-2 px-1 rounded-lg" matBadge="67" matBadgePosition="before" matBadgeSize="medium">Action</div>
+<button matButton matBadge="7" [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility()" color="accent">Hide</button>

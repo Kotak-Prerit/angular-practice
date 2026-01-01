@@ -1,19 +1,15 @@
-//Primary palette
+//Primary palette :
 $primary-palette:(
-    50: #feebee,
-    100: #fdccd1,
-    200: #ec9899,
-    300: #e17172,
-    400: #ea5050,
-    500: #ef3f36,
-    600: #e03535,
-    700: #ce2c2f,
-    800: #c12528,
-    900: #b2181c,
-    A100: #ec9899,
-    A200: #e17172,
-    A400: #ef3f36,
-    A700: #ce2c2f,
+    50: #e7ebf2,
+    100: #c3cbe0,
+    200: #9daacb,
+    300: #778ab6,
+    400: #5970a7,
+    500: #3b589a,
+    600: #355091,
+    700: #2c4685,
+    800: #253d78,
+    900: #1b2c61,
     contrast: (
         50: rgba(#000000, 0.87),
         100: rgba(black, 0.87),
@@ -32,7 +28,7 @@ $primary-palette:(
     )
 );
 
-//Secondary palette
+//Secondary palette :
 $secondary-palette:(
     50: #e0f1f2,
     100: #b2ddde,
@@ -66,7 +62,7 @@ $secondary-palette:(
     )
 );
 
-//Errors palette
+//Errors palette :
 $warn-palette:(
     50: #fff3e0,
     100: #ffe0b2,
@@ -98,4 +94,40 @@ $warn-palette:(
         A400: rgba(black, 0.87),
         A700: rgba(black, 0.87),
     )
-)
+);
+
+// light mode theming :
+$light-foreground: (
+  base: #000,
+  text: rgba(0, 0, 0, 0.87),
+  secondary-text: rgba(0, 0, 0, 0.6),
+  disabled: rgba(0, 0, 0, 0.38),
+  icon: rgba(0, 0, 0, 0.54),
+  divider: rgba(0, 0, 0, 0.12),
+);
+
+$light-background: (
+  background: #fafafa,
+  card: #ffffff,
+  dialog: #ffffff,
+  hover: rgba(0, 0, 0, 0.04),
+  app-bar: #ffffff,
+);
+
+// Dark mode theming :
+$dark-foreground: (
+  base: #fff,
+  text: rgba(255, 255, 255, 0.87),
+  secondary-text: rgba(255, 255, 255, 0.6),
+  disabled: rgba(255, 255, 255, 0.38),
+  icon: rgba(255, 255, 255, 0.7),
+  divider: rgba(255, 255, 255, 0.12),
+);
+
+$dark-background: (
+  background: #121212,
+  card: #1e1e1e,
+  dialog: #1e1e1e,
+  hover: rgba(255, 255, 255, 0.04),
+  app-bar: #1e1e1e,
+);
