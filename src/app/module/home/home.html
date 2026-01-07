@@ -1,15 +1,26 @@
-<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
-  @for (card of componentCards; track card) {
-  <mat-card appearance="outlined" class="overflow-hidden card-container">
-    <mat-card-header>
-      <div class="w-full">
-      <mat-card-title>{{ card.title }}</mat-card-title>
-      <mat-card-subtitle><div title="{{card.description}}" class="truncate">{{ card.description}}...</div></mat-card-subtitle>
-      </div>
-    </mat-card-header>
-    <mat-card-actions>
-      <mat-chip color="primary"><a [routerLink]="card.route" class="text-sm">Learn More</a></mat-chip>
-    </mat-card-actions>
-  </mat-card>
-  }
+<div class="h-full overflow-auto grid grid-cols-2">
+<app-analytics-card class="col-span-full"/>
+
+<app-users-analytics class="col-span-full"/>
+
+<app-orders-products-table class="col-span-full"/>
 </div>
+
+<!--<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 mt-10">-->
+
+<!--  @for (card of componentCards; track card) {-->
+<!--    <mat-card appearance="outlined" class="overflow-hidden card-container">-->
+<!--      <mat-card-header>-->
+<!--        <div class="w-full">-->
+<!--          <mat-card-title>{{ card.title }}</mat-card-title>-->
+<!--          <mat-card-subtitle>-->
+<!--            <div class="truncate" title="{{card.description}}">{{ card.description }}...</div>-->
+<!--          </mat-card-subtitle>-->
+<!--        </div>-->
+<!--      </mat-card-header>-->
+<!--      <mat-card-actions>-->
+<!--        <a [routerLink]="card.route" class="text-sm" color="primary" matButton="filled">Learn More</a>-->
+<!--      </mat-card-actions>-->
+<!--    </mat-card>-->
+<!--  }-->
+<!--</div>-->

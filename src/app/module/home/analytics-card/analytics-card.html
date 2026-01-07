@@ -1,0 +1,47 @@
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mb-6">
+  @for (card of analiticsCard; track card) {
+
+    <mat-card class="analytics-card" appearance="outlined">
+      <mat-card-header>
+        <mat-card-title-group>
+          <mat-card-subtitle><span class="uppercase font-bold white">{{ card.title }}</span>
+          </mat-card-subtitle>
+          <mat-card-subtitle>
+            <span class="font-bold my-5 white">
+            @if (card.useSignInPrefix) {
+              <span>{{ card.sign }} </span>
+            }
+              <span>{{ card.value }}</span>
+
+              @if (!card.useSignInPrefix) {
+                <span> {{ card.sign }}</span>
+              }
+            </span>
+          </mat-card-subtitle>
+          <button [color]="card.icon_color" aria-label="Example icon button with a vertical three dot icon"
+                  class="icon-btn"
+                  matFab>
+            <mat-icon>{{ card.icon }}</mat-icon>
+          </button>
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="mt-9">
+          @if (card.isProgress) {
+            <mat-progress-bar [value]="card.high_low_value" color="primary" mode="determinate"></mat-progress-bar>
+          } @else {
+            <div class="flex text-xs items-center gap-2 leading-8">
+              <div [class.text-green-500]="card.highLow" [class.text-red-500]="!card.highLow"
+                   class="flex items-start white">
+                <mat-icon class="text-2xl h-auto w-auto">{{ card.highLow ? "arrow_drop_up" : "arrow_drop_down" }}
+                </mat-icon>
+                <span class="leading-8">{{ card.high_low_value }}%</span></div>
+              <mat-card-subtitle><span class="white">Since last month</span></mat-card-subtitle>
+            </div>
+          }
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+  }
+</div>

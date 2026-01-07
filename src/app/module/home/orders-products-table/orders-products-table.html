@@ -1,0 +1,126 @@
+<div class="grid md:grid-cols-1 lg:grid-cols-4 gap-5 mt-5">
+  <div class="col-span-1 w-full">
+    <mat-card appearance="outlined" class="h-full">
+      <div class="grid grid-rows-[auto_1fr_auto] h-full">
+        <div class="flex-vertical w-full justify-start my-3 px-6 gap-5">
+          <mat-card-subtitle>
+            <h1 class="text-xl font-medium">Latest Products</h1>
+            <span class="text-xs font-medium flex gap-2">5 in total</span>
+          </mat-card-subtitle>
+        </div>
+        <table>
+          <tbody class="productsTable">
+            @for (product of productstable; track product) {
+              <tr>
+                <div class="mx-3 px-3 py-6 flex-between">
+                  <div class="flex items-start gap-6">
+                    <td class="h-10 w-10">
+                      <img [alt]="product.title" [src]="product.image" class="h-full rounded-lg">
+                    </td>
+                    <td>
+                      <div class="font-bold">{{ product.title }}</div>
+                      <div class="text-xs text-[#9EA0A5]">updated 5hr ago</div>
+                    </td>
+                  </div>
+                  <td class="w-10 text-[#9EA0A5] cursor-pointer hover:text-black transition-all">
+                    <mat-icon>more_vert</mat-icon>
+                  </td>
+                </div>
+              </tr>
+              <app-divider/>
+            }
+          </tbody>
+        </table>
+        <app-divider/>
+
+        <div class="p-3 vertical-center justify-end">
+          <button color="primary" matButton><span class="font-bold text-sm">view all</span>
+          </button>
+          <mat-icon class="cursor-pointer" color="primary">arrow_right</mat-icon>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+  <div class="col-span-3 w-full">
+    <mat-card appearance="outlined" class="h-full">
+      <div class="flex-between w-full my-3 px-6">
+        <div class="vertical-center flex-col md:flex-row md:gap-4">
+          <mat-card-subtitle>
+            <h1 class="text-sm md:text-xl font-medium">Latest Orders</h1>
+            <span class="text-xs">3600 total</span>
+          </mat-card-subtitle>
+        </div>
+        <div class="vertical-center gap-4 text-xs md:text-md">
+          <mat-card-subtitle>
+            <div class="flex-center">
+              <p>Sort By: Newest</p>
+              <mat-icon class="text-[#9EA0A5] ">arrow_drop_down</mat-icon>
+            </div>
+          </mat-card-subtitle>
+          <button class="px-4 uppercase" color="primary" matButton="outlined"> new entry</button>
+        </div>
+      </div>
+      <table [dataSource]="dataSource" class="mat-elevation-z8" mat-table>
+
+        <!-- ID Column -->
+        <ng-container matColumnDef="_id">
+          <th *matHeaderCellDef mat-header-cell> Order ID</th>
+          <td *matCellDef="let order" mat-cell> {{ order._id }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="customer">
+          <th *matHeaderCellDef mat-header-cell> Customer Name</th>
+          <td *matCellDef="let order" mat-cell> {{ order.customer }}</td>
+        </ng-container>
+
+        <!-- Date Column -->
+        <ng-container matColumnDef="date">
+          <th *matHeaderCellDef mat-header-cell> Date</th>
+          <td *matCellDef="let order" mat-cell> {{ order.date }}</td>
+        </ng-container>
+
+        <!-- Status Column -->
+        <ng-container matColumnDef="status">
+          <th *matHeaderCellDef mat-header-cell> Status</th>
+          <td *matCellDef="let order" mat-cell>
+            <div class="text-[#9EA0A5] vertical-center gap-2">
+              @if (order.status === 'delivered') {
+                <div class="bg-[#47B881] h-2 w-2 rounded-full flex"></div> Delivered
+              } @else if (order.status === 'pending') {
+                <div class="bg-[#F7D154] h-2 w-2 rounded-full flex"></div> Pending
+              } @else {
+                <div class="bg-[#EC4C47] h-2 w-2 rounded-full flex"></div> Refund
+              }
+            </div>
+          </td>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <th *matHeaderCellDef mat-header-cell> Actions</th>
+          <td *matCellDef="let order" mat-cell>
+            <div class=" vertical-center justify-start gap-5 text-[#9EA0A5]">
+              <button color="primary" matIconButton>
+                <mat-icon>{{ order.actions[0] }}</mat-icon>
+              </button>
+              <button color="primary" matIconButton>
+                <mat-icon>{{ order.actions[1] }}</mat-icon>
+              </button>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+        <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+
+      </table>
+      <app-divider/>
+      <div>
+        <mat-paginator [length]="100" [pageSize]="10" aria-label="Select page"
+                       class="text-sm">
+        </mat-paginator>
+      </div>
+    </mat-card>
+  </div>
+</div>

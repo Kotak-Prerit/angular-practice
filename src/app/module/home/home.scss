@@ -1,7 +1,1 @@
-@use '@angular/material' as mat;
 
-.card-container{
-  @include mat.chips-overrides((
-    container-shape-radius: 8px,
-  ))
-}

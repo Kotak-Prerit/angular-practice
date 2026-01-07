@@ -1,0 +1,19 @@
+@use '@angular/material' as mat;
+
+.card-container{
+  @include mat.chips-overrides((
+    container-shape-radius: 8px,
+  ))
+}
+
+.icon-btn{
+  box-shadow: none;
+}
+
+.analytics-card:last-child{
+  background: #3F51B5;
+
+  .white{
+    color: white;
+  }
+}

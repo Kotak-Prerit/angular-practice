@@ -1,0 +1,78 @@
+<div class="grid md:grid-cols-1 lg:grid-cols-4 gap-5 ">
+  <div class="col-span-3 w-full h-full">
+    <mat-card appearance="outlined" class="h-full">
+      <div class="grid grid-rows-[auto_1fr_auto] h-full w-full overflow-auto">
+        <div class="flex-between w-full my-3 px-6">
+          <mat-card-subtitle class="text-xl font-medium text-[#3A3B3F]">Users by device</mat-card-subtitle>
+          <mat-card-subtitle class="text-md text-[#3A3B3F] font-medium">
+            <div class="flex-center gap-2">
+              <p>Last 7 days</p>
+              <mat-icon class="text-[#9EA0A5]">arrow_drop_down</mat-icon>
+            </div>
+          </mat-card-subtitle>
+        </div>
+        <div (chartInit)="onChartInit()" [options]="barChartOption()" class="h-full"
+             echarts></div>
+        <app-divider/>
+        <div class="vertical-center w-full justify-end p-3">
+          <div class="vertical-center justify-end text-[#1070CA] text-sm font-bold">Audience Overview
+            <mat-icon class="text-[#1665D8]">arrow_right</mat-icon>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+  <div class="col-span-1 w-full h-full grid-rows-[auto_1fr_auto_auto]">
+    <mat-card appearance="outlined" class="h-full">
+      <div class="flex-between w-full p-3">
+        <mat-card-subtitle><h1 class="text-md font-medium">Users by device</h1></mat-card-subtitle>
+        <mat-icon class="text-[#9EA0A5]">settings_backup_restore</mat-icon>
+      </div>
+      <app-divider/>
+      <div (chartInit)="onChartInit()" [options]="pieChartOption()" class="md:col-span-2 h-[300px]" echarts></div>
+      <div class="vertical-center justify-center gap-6 mb-6">
+        <div>
+          <div class="vertical-center justify-center w-full">
+            <mat-icon class="text-[#A6B1BB] mb-2">desktop_windows</mat-icon>
+          </div>
+          <div class="w-full vertical-center justify-center flex-col">
+            <span class="text-center sm:text-xs md:text-xs lg:text-sm xl:text-lg mb-3 text-[#A6B1BB]">Desktop</span>
+            <p class="text-center sm:text-sm md:text-md lg:text-xl xl:text-3xl font-bold text-[#1070CA]">63%</p>
+          </div>
+        </div>
+        <div>
+          <div class="vertical-center justify-center w-full">
+            <mat-icon class="text-[#A6B1BB] mb-2">tablet_android</mat-icon>
+          </div>
+          <div class="w-full flex justify-center align-center flex-col">
+            <span class="text-center sm:text-xs md:text-xs lg:text-sm xl:text-lg mb-3 text-[#A6B1BB]">Tablet</span>
+            <p class="text-center sm:text-sm md:text-md lg:text-xl xl:text-3xl font-bold text-[#F7D154]">15%</p>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-center align-center w-full">
+            <mat-icon class="text-[#A6B1BB] mb-2">smartphone</mat-icon>
+          </div>
+          <div class="w-full flex justify-center align-center flex-col">
+            <span class="text-center sm:text-xs md:text-xs lg:text-sm xl:text-lg mb-3 text-[#A6B1BB]">Mobile</span>
+            <p class="text-center sm:text-sm md:text-md lg:text-xl xl:text-3xl font-bold text-[#EC4C47]">22%</p>
+          </div>
+        </div>
+      </div>
+      <app-divider/>
+      <div class="flex-between w-full p-3">
+        <mat-card-subtitle>
+          <div class="flex-center">
+            <div class="font-medium flex text-xs">Last 7 days</div>
+            <mat-icon>arrow_right</mat-icon>
+          </div>
+        </mat-card-subtitle>
+        <button matButton class="vertical-center justify-end">
+          <div class="vertical-center justify-end text-[#1070CA] text-sm font-bold">Audience Devices
+            <mat-icon class="text-[#1665D8]">arrow_right</mat-icon>
+          </div>
+        </button>
+      </div>
+    </mat-card>
+  </div>
+</div>

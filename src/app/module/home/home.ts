@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import {Component, OnInit, model} from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button'
-import {RouterLink} from '@angular/router';
 import {MatChipsModule} from '@angular/material/chips';
+import {AnalyticsCard} from './analytics-card/analytics-card';
+import {UsersAnalytics} from './users-analytics/users-analytics';
+import {OrdersProductsTable} from './orders-products-table/orders-products-table';
 
 interface cards {
   title: string;
@@ -12,12 +14,12 @@ interface cards {
 
 @Component({
   selector: 'app-home',
-  imports: [MatCardModule, MatButtonModule, RouterLink, MatChipsModule],
+  imports: [MatCardModule, MatButtonModule, MatChipsModule, AnalyticsCard, UsersAnalytics, OrdersProductsTable],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
 export class Home {
-    componentCards: cards[] = [
+  componentCards: cards[] = [
     { title: 'Autocomplete', description: 'Learn about Angular Material Autocomplete component.', route: '/autocomplete' },
     { title: 'Badge', description: 'Learn about Angular Material Badge component.', route: '/badge' },
     { title: 'Bottom Sheet', description: 'Learn about Angular Material Bottom Sheet component.', route: '/bottom-sheet' },
